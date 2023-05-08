@@ -19,9 +19,7 @@ Route::get('/', function () {
 Route::get("/home", function () {
     return redirect()->intended();
 });
-Route::get("/jadwal", function(){
-    return view("pages.jadwal.add_jadwal");
-});
+
 
 Route::middleware(["guest"])->group(function () {
     Route::get("/register", [\App\Http\Controllers\AuthController::class, "registerform"]);
@@ -56,6 +54,7 @@ Route::middleware(["auth"])->group(function () {
 
     Route::middleware(["ispeternak"])->group(function () {
         Route::get("/susu", [\App\Http\Controllers\SusuController::class, "list"]);
+        Route::get("/jadwal", [\App\Http\Controllers\JadwalController::class, "jadwal"]);
 
         Route::get("/addsusu", [\App\Http\Controllers\SusuController::class, "addform"]);
         Route::post("/addsusu", [\App\Http\Controllers\SusuController::class, "add"]);

@@ -24,6 +24,7 @@
                     <option value="done">Sudah Makan</option>
                     <option value="notyet">Belum Makan</option>
                 </select>
+                
                 <div class="flex justify-center gap-4 ">
                     <button type="submit" class="bg-btn-blue text-white p-2 rounded-full flex-grow">Simpan</button>
                     <a href="{{url("/")}}"
