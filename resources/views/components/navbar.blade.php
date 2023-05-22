@@ -7,7 +7,7 @@
             <a href="{{url("/stok")}}">Stok</a>
             @if (auth () -> user() -> role -> role_name === 'peternak')
             <a href="{{url("/jadwal")}}">Penjadwalan</a>
-            <a href="{{url("/")}}">Pembukuan</a>
+            <a href="{{url("/keuangan")}}">Pembukuan</a>
             <a href="{{url("/susu")}}">Pencatatan</a>  
             @endif
         </div>

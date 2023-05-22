@@ -49,9 +49,4 @@ class SusuController extends Controller
         Auth::user()->susu->find($id)->update($data);
         return redirect("/susu");
     }
-    public function delete($id)
-    {
-        Susu::find($id)->delete();
-        return redirect("/susu");
-    }
 }

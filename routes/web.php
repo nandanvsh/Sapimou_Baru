@@ -55,14 +55,21 @@ Route::middleware(["auth"])->group(function () {
     Route::middleware(["ispeternak"])->group(function () {
         Route::get("/susu", [\App\Http\Controllers\SusuController::class, "list"]);
         Route::get("/jadwal", [\App\Http\Controllers\JadwalController::class, "jadwal"]);
+        Route::get("/keuangan", [\App\Http\Controllers\KeuanganController::class, "keuangan"]);
 
         Route::get("/addsusu", [\App\Http\Controllers\SusuController::class, "addform"]);
         Route::post("/addsusu", [\App\Http\Controllers\SusuController::class, "add"]);
+        Route::get("/add_jadwal", [\App\Http\Controllers\JadwalController::class, "addform"]);
+        Route::post("/add_jadwal", [\App\Http\Controllers\JadwalController::class, "add"]);
+        Route::get("/add", [\App\Http\Controllers\KeuanganController::class, "addform"]);
+        Route::post("/add", [\App\Http\Controllers\KeuanganController::class, "add"]);
 
         Route::get("/editsusu/{id}", [\App\Http\Controllers\SusuController::class, "editform"]);
         Route::post("/editsusu/{id}", [\App\Http\Controllers\SusuController::class, "edit"]);
-
-        Route::get("/hapussusu/{id}", [\App\Http\Controllers\SusuController::class, "delete"]);
+        Route::get("/edit/{id}", [\App\Http\Controllers\KeuanganController::class, "editform"]);
+        Route::post("/edit/{id}", [\App\Http\Controllers\KeuanganController::class, "edit"]);
+        Route::get("/edit/{id}", [\App\Http\Controllers\JadwalController::class, "editform"]);
+        Route::post("/edit/{id}", [\App\Http\Controllers\JadwalController::class, "edit"]);
 
         Route::post("/beli/{id}", [\App\Http\Controllers\OrderController::class, "beli"]);
 

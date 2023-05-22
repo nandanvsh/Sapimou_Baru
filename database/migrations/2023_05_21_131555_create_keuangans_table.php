@@ -13,15 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jadwals', function (Blueprint $table) {
+        Schema::create('keuangans', function (Blueprint $table) {
             $table->id();
+            $table->dateTime("tanggal")->default(now());
+            $table->float("pemasukan");
+            $table->float("pengeluaran");
             $table->unsignedBigInteger("user_id");
-            $table->foreignId("waktu_id")->constrained();
-            $table->string("name");
-            $table->time("jam");
-            $table->boolean("status_perah")->default(0);
-            $table->boolean("status_pakan")->default(0);
-            $table->integer("stok_combor");
             $table->timestamps();
 
             $table->foreign("user_id")->references("id")->on("users");
@@ -35,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jadwals');
+        Schema::dropIfExists('keuangans');
     }
 };

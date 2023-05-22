@@ -11,7 +11,7 @@
                     <th class="pb-6 pe-8">Diperah tanggal</th>
                     <th class="pb-6 pe-8">Dijual tanggal</th>
                     <th class="pb-6 pe-8">ID peternak</th>
-                    <th class="pb-6 pe-8"><a class="bg-primary text-white p-2 px-4 rounded-full" href="{{url("/addsusu")}}">Tambah data</a></th>
+                    <th class="pb-6 pe-8"><a class="bg-primary text-white p-2 px-4 rounded-full" href="{{url("/addsusu")}}">Tambah</a></th>
                 </tr>
                 @foreach($susus as $i=>$susu)
                     <tr>
@@ -24,7 +24,6 @@
                         <td class="text-center pe-8">{{$susu->user_id}}</td>
                         <td class="text-center pe-8">
                             <a href="{{url("/editsusu/$susu->id")}}" class="bg-btn-blue text-white p-2 rounded-md">Edit</a>
-                            <a href="{{url("/hapussusu/$susu->id")}}" class="bg-red-600 text-white p-2 rounded-md">Hapus</a>
                         </td>
                     </tr>
                 @endforeach
