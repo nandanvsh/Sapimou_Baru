@@ -12,7 +12,7 @@ class JadwalController extends Controller
     public function jadwal()
     {
         $jadwal = jadwal::all();
-        return view("pages.jadwal.index",["jadwals" => $jadwal] );
+        return view("pages.jadwal.index",["jadwals" => $jadwal]);
     }
     public function addform()
     {

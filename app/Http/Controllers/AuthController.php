@@ -24,7 +24,7 @@ class AuthController extends Controller
             "phone" => "required",
             "role_id" => "required|exists:roles,id|integer",
         ]);
-        Auth::user()->update($biodata);
+        // Auth::user()->update($biodata);
         return redirect("/me");
     }
     public function registerform()

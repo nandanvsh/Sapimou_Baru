@@ -14,7 +14,7 @@
                     <th class="pb-5 pe-8">Status Pemberian Pakan</th>
                     <th class="pb-5 pe-8">Stok Combor</th>
                     <th class="pb-5 pe-8">ID peternak</th>
-                    <th class="pb-6 pe-8"><a class="bg-primary text-white p-2 px-4 rounded-full" href="{{url("/add")}}">Tambah</a></th>
+                    <th class="pb-6 pe-8"><a class="bg-primary text-white p-2 px-4 rounded-full" href="{{url("/add_jadwal")}}">Tambah</a></th>
                 </tr>
                 @foreach ($jadwals as $w=>$jadwal)
                     <tr>
@@ -41,7 +41,7 @@
                         <td class="text-center pe-8">{{$jadwal->stok_combor}}</td>
                         <td class="text-center pe-8">{{$jadwal->user_id}}</td>
                         <td class="text-center pe-8">
-                            <a href="{{url("/edit/$jadwal->id")}}" class="bg-btn-blue text-white p-2 rounded-md">Edit</a>
+                            <a href="{{url("/jadwal/edit/$jadwal->id")}}" class="bg-btn-blue text-white p-2 rounded-md">Edit</a>
                         </td>
                     </tr>
                 @endforeach

@@ -34,7 +34,7 @@ class KeuanganController extends Controller
 
     public function editform($id)
     {
-        $keuangan = keuangan::find($id);
+        $keuangan = keuangan::find($id); 
         if ($keuangan) {
             return view("pages.pembukuan.edit", ["keuangan" => $keuangan]);
         }

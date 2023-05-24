@@ -68,8 +68,8 @@ Route::middleware(["auth"])->group(function () {
         Route::post("/editsusu/{id}", [\App\Http\Controllers\SusuController::class, "edit"]);
         Route::get("/edit/{id}", [\App\Http\Controllers\KeuanganController::class, "editform"]);
         Route::post("/edit/{id}", [\App\Http\Controllers\KeuanganController::class, "edit"]);
-        Route::get("/edit/{id}", [\App\Http\Controllers\JadwalController::class, "editform"]);
-        Route::post("/edit/{id}", [\App\Http\Controllers\JadwalController::class, "edit"]);
+        Route::get("/jadwal/edit/{id}", [\App\Http\Controllers\JadwalController::class, "editform"]);
+        Route::post("/jadwal/edit/{id}", [\App\Http\Controllers\JadwalController::class, "edit"]);
 
         Route::post("/beli/{id}", [\App\Http\Controllers\OrderController::class, "beli"]);
 
