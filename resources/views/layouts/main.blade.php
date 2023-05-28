@@ -13,5 +13,16 @@
 <body class="bg-primary relative">
     @yield("content")
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            fetch(`{{ url("/unreadChat") }}`)
+                .then(response => response.json())
+                .then(data => {
+                    if(data > 0){
+                        document.getElementById("chat-icon").innerHTML += `<span class="absolute ml-3 mb-1 bg-red-500 rounded-full w-4 h-4 text-center text-white text-xs">${data}</span>`
+                    }
+                })
+        });
+    </script>
 </body>
 </html>

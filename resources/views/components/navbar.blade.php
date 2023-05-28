@@ -19,6 +19,9 @@
             <a href="{{url("/register")}}" class="bg-white py-2 px-6 rounded-xl">Register</a>
         @endguest
         @auth
+            <a href="{{url("/chat")}}" id="chat-icon" class="bg-white p-2 rounded-full">
+                <img width="22" height="22" src="https://img.icons8.com/ios/50/chat-message--v1.png" alt="chat-message--v1"/>
+            </a>
             <a href="{{url("/me")}}" class="bg-white p-2 rounded-full">
                 <img src="{{url("/images/akun.svg")}}" alt="">
             </a>

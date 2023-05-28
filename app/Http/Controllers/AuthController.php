@@ -7,6 +7,8 @@ use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Chat;
+use App\Models\Message;
 
 class AuthController extends Controller
 {
@@ -18,13 +20,32 @@ class AuthController extends Controller
         return view("pages.editme", ["roles"=>$roles]);
     }
     public function edit(Request $request){
+        // update all chat with this user
+        $chats = Chat::where('username_1', Auth::user()->name)->orWhere('username_2', Auth::user()->name)->get();
+        $messages = Message::where('sender', Auth::user()->name)->get();
         $biodata = $request->validate([
             "name" => "required",
             "email" => "required|unique:users,email,".Auth::user()->id,
             "phone" => "required",
             "role_id" => "required|exists:roles,id|integer",
         ]);
-        // Auth::user()->update($biodata);
+        foreach ($chats as $chat) {
+            if ($chat->username_1 == Auth::user()->name) {
+                $chat->username_2 = $biodata["name"];
+            }else{
+                $chat->username_2 = $biodata["name"];
+            }
+            $chat->save();
+            if($chat->last_sender == Auth::user()->name){
+                $chat->last_sender = $biodata["name"];
+                $chat->save();
+            }
+        }
+        Auth::user()->update($biodata);
+        foreach ($messages as $message) {
+            $message->sender = $biodata["name"];
+            $message->save();
+        }
         return redirect("/me");
     }
     public function registerform()

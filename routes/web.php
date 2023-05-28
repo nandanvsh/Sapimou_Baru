@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use PHPUnit\TextUI\XmlConfiguration\Group;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,15 @@ Route::get('/', function () {
 Route::get("/home", function () {
     return redirect()->intended();
 });
+
+
+Route::get("/chat", [\App\Http\Controllers\ChatController::class, "index"]);
+Route::post("/chat", [\App\Http\Controllers\ChatController::class, "send"]);
+Route::get("/getChat/{id}", [\App\Http\Controllers\ChatController::class, "getChat"]);
+Route::post("/message", [\App\Http\Controllers\ChatController::class, "message"]);
+Route::get("/getRole/{id}", [\App\Http\Controllers\AuthController::class, "getRole"]);
+Route::get("/unreadChat", [\App\Http\Controllers\ChatController::class, "unreadChat"]);
+Route::get("/readChat/{id}", [\App\Http\Controllers\ChatController::class, "readChat"]);
 
 
 Route::middleware(["guest"])->group(function () {
